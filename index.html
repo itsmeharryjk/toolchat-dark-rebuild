@@ -129,8 +129,11 @@
         transform: translateY(-1px);
       }
 
-      .cta-button {
-        padding: 10px 20px;
+      .user-account {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 16px;
         background: var(--bg-input);
         border: 1px solid var(--border-primary);
         border-radius: 10px;
@@ -140,12 +143,26 @@
         font-weight: 500;
         transition: all 0.2s ease;
         backdrop-filter: blur(8px);
+        cursor: pointer;
       }
 
-      .cta-button:hover {
+      .user-account:hover {
         background: var(--bg-card);
         border-color: var(--border-glow);
         transform: translateY(-1px);
+      }
+
+      .user-avatar {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--accent-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 12px;
+        font-weight: 600;
       }
 
       .main {
@@ -515,6 +532,7 @@
         font-size: 12px;
         color: var(--text-tertiary);
         font-weight: 400;
+        line-height: 1.5;
       }
 
       /* Mobile Optimizations */
@@ -572,8 +590,8 @@
           justify-content: center;
         }
 
-        .cta-button {
-          padding: 8px 14px;
+        .user-account {
+          padding: 6px 12px;
           font-size: 13px;
         }
 
@@ -614,7 +632,10 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
-        <a href="#" class="cta-button">Buy me a coffee</a>
+        <div class="user-account">
+          <div class="user-avatar">R</div>
+          <span>Richard</span>
+        </div>
       </div>
     </nav>
 
@@ -689,7 +710,7 @@
     </main>
 
     <footer class="footer">
-      <p class="footer-text">© 2025 TOOLChat. Professional file processing made simple.</p>
+      <p class="footer-text">Professional file processing made simple.<br>© 2025 TOOLChat.</p>
     </footer>
 
     <script>
