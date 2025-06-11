@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ToolChat - Process Your Files</title>
+    <title>TOOLChat - Process Your Files</title>
     <meta name="description" content="Professional file processing tool with AI assistance" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,44 +18,40 @@
 
       :root[data-theme="dark"] {
         --bg-page: linear-gradient(135deg, #0A0A0B 0%, #0F0F10 25%, #1A1B1E 100%);
-        --bg-panel: rgba(24, 25, 27, 0.95);
-        --bg-header: rgba(42, 43, 46, 0.9);
-        --bg-input: rgba(17, 18, 20, 0.8);
-        --bg-card: rgba(30, 31, 34, 0.85);
-        --border-primary: rgba(60, 61, 64, 0.6);
-        --border-glow: rgba(59, 130, 246, 0.3);
+        --bg-panel: rgba(24, 25, 27, 0.9);
+        --bg-header: rgba(42, 43, 46, 0.8);
+        --bg-input: rgba(17, 18, 20, 0.7);
+        --bg-card: rgba(30, 31, 34, 0.8);
+        --bg-footer: rgba(12, 13, 15, 0.6);
+        --border-primary: rgba(60, 61, 64, 0.5);
+        --border-glow: rgba(59, 130, 246, 0.25);
         --accent-primary: linear-gradient(135deg, #3B82F6 0%, #6366F1 100%);
-        --accent-secondary: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
-        --text-primary: rgba(255, 255, 255, 0.95);
+        --text-primary: rgba(243, 244, 246, 0.95);
         --text-secondary: rgba(169, 173, 179, 0.9);
-        --text-tertiary: rgba(93, 97, 104, 0.8);
-        --shadow-panel: 0 32px 64px rgba(0, 0, 0, 0.4), 0 8px 32px rgba(0, 0, 0, 0.3);
-        --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.2);
-        --shadow-button: 0 8px 24px rgba(59, 130, 246, 0.3), 0 2px 8px rgba(59, 130, 246, 0.2);
-        --shadow-inner: inset 0 2px 4px rgba(255, 255, 255, 0.1);
-        --glow-primary: 0 0 20px rgba(59, 130, 246, 0.4);
-        --backdrop-blur: 20px;
+        --text-tertiary: rgba(107, 114, 128, 0.8);
+        --shadow-panel: 0 20px 40px rgba(0, 0, 0, 0.2);
+        --shadow-card: 0 10px 20px rgba(0, 0, 0, 0.15);
+        --shadow-button: 0 4px 12px rgba(59, 130, 246, 0.2);
+        --backdrop-blur: 12px;
       }
 
       :root[data-theme="light"] {
         --bg-page: linear-gradient(135deg, #FAFBFC 0%, #F1F5F9 25%, #E2E8F0 100%);
         --bg-panel: rgba(255, 255, 255, 0.9);
-        --bg-header: rgba(248, 250, 252, 0.95);
+        --bg-header: rgba(248, 250, 252, 0.9);
         --bg-input: rgba(248, 250, 252, 0.8);
         --bg-card: rgba(255, 255, 255, 0.85);
+        --bg-footer: rgba(248, 250, 252, 0.6);
         --border-primary: rgba(226, 232, 240, 0.8);
-        --border-glow: rgba(59, 130, 246, 0.2);
+        --border-glow: rgba(59, 130, 246, 0.3);
         --accent-primary: linear-gradient(135deg, #3B82F6 0%, #6366F1 100%);
-        --accent-secondary: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
         --text-primary: rgba(15, 23, 42, 0.95);
         --text-secondary: rgba(71, 85, 105, 0.9);
-        --text-tertiary: rgba(148, 163, 184, 0.8);
-        --shadow-panel: 0 32px 64px rgba(0, 0, 0, 0.08), 0 8px 32px rgba(0, 0, 0, 0.06);
-        --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
-        --shadow-button: 0 8px 24px rgba(59, 130, 246, 0.2), 0 2px 8px rgba(59, 130, 246, 0.1);
-        --shadow-inner: inset 0 2px 4px rgba(255, 255, 255, 0.6);
-        --glow-primary: 0 0 20px rgba(59, 130, 246, 0.2);
-        --backdrop-blur: 20px;
+        --text-tertiary: rgba(100, 116, 139, 0.8);
+        --shadow-panel: 0 20px 40px rgba(0, 0, 0, 0.08);
+        --shadow-card: 0 10px 20px rgba(0, 0, 0, 0.06);
+        --shadow-button: 0 4px 12px rgba(59, 130, 246, 0.25);
+        --backdrop-blur: 12px;
       }
 
       body {
@@ -71,18 +67,6 @@
         -moz-osx-font-smoothing: grayscale;
       }
 
-      .noise-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        opacity: 0.03;
-        z-index: 1;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      }
-
       .nav {
         position: fixed;
         top: 0;
@@ -92,73 +76,22 @@
         backdrop-filter: blur(var(--backdrop-blur));
         -webkit-backdrop-filter: blur(var(--backdrop-blur));
         border-bottom: 1px solid var(--border-primary);
-        padding: 20px 32px;
+        padding: 16px 32px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         z-index: 100;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .nav::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(90deg, transparent 0%, var(--border-glow) 50%, transparent 100%);
-        height: 1px;
-        bottom: -1px;
-        opacity: 0.6;
+        transition: all 0.3s ease;
       }
 
       .logo {
         display: flex;
         align-items: center;
-        gap: 16px;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.2s ease;
       }
 
       .logo:hover {
         transform: translateY(-1px);
-      }
-
-      .logo-icon {
-        width: 40px;
-        height: 40px;
-        background: var(--accent-primary);
-        color: white;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 20px;
-        box-shadow: var(--shadow-button);
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .logo-icon::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.6s ease;
-      }
-
-      .logo-icon:hover::before {
-        left: 100%;
-      }
-
-      .logo-icon:hover {
-        transform: scale(1.05);
-        box-shadow: var(--glow-primary), var(--shadow-button);
       }
 
       .logo-text {
@@ -166,102 +99,59 @@
         font-weight: 700;
         color: var(--text-primary);
         letter-spacing: -0.02em;
-        background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
       }
 
       .nav-right {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 16px;
       }
 
       .theme-toggle {
-        width: 48px;
-        height: 48px;
+        width: 40px;
+        height: 40px;
         border: none;
         background: var(--bg-input);
         color: var(--text-secondary);
         cursor: pointer;
-        border-radius: 12px;
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s ease;
         border: 1px solid var(--border-primary);
-        backdrop-filter: blur(10px);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .theme-toggle::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        background: radial-gradient(circle, var(--border-glow) 0%, transparent 70%);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
+        backdrop-filter: blur(8px);
       }
 
       .theme-toggle:hover {
         background: var(--bg-card);
         color: var(--text-primary);
         border-color: var(--border-glow);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-card);
-      }
-
-      .theme-toggle:hover::before {
-        width: 100px;
-        height: 100px;
+        transform: translateY(-1px);
       }
 
       .cta-button {
-        padding: 12px 24px;
+        padding: 10px 20px;
         background: var(--bg-input);
         border: 1px solid var(--border-primary);
-        border-radius: 12px;
+        border-radius: 10px;
         color: var(--text-primary);
         text-decoration: none;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        backdrop-filter: blur(10px);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .cta-button::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-        transition: left 0.6s ease;
+        transition: all 0.2s ease;
+        backdrop-filter: blur(8px);
       }
 
       .cta-button:hover {
         background: var(--bg-card);
         border-color: var(--border-glow);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-card);
-      }
-
-      .cta-button:hover::before {
-        left: 100%;
+        transform: translateY(-1px);
       }
 
       .main {
-        padding-top: 120px;
-        min-height: 100vh;
+        padding-top: 100px;
+        min-height: calc(100vh - 120px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -271,183 +161,83 @@
         z-index: 2;
       }
 
-      .floating-elements {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        overflow: hidden;
-      }
-
-      .floating-circle {
-        position: absolute;
-        border-radius: 50%;
-        background: radial-gradient(circle, var(--border-glow) 0%, transparent 70%);
-        animation: float 20s infinite linear;
-      }
-
-      .floating-circle:nth-child(1) {
-        width: 200px;
-        height: 200px;
-        top: 10%;
-        left: 80%;
-        animation-delay: 0s;
-      }
-
-      .floating-circle:nth-child(2) {
-        width: 150px;
-        height: 150px;
-        top: 60%;
-        left: 10%;
-        animation-delay: -10s;
-      }
-
-      .floating-circle:nth-child(3) {
-        width: 100px;
-        height: 100px;
-        top: 30%;
-        left: 20%;
-        animation-delay: -5s;
-      }
-
-      @keyframes float {
-        0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-        50% { transform: translateY(-20px) rotate(180deg); opacity: 0.1; }
-        100% { transform: translateY(0px) rotate(360deg); opacity: 0.3; }
-      }
-
       .process-panel {
         width: 100%;
-        max-width: 920px;
+        max-width: 800px;
         background: var(--bg-panel);
         backdrop-filter: blur(var(--backdrop-blur));
         -webkit-backdrop-filter: blur(var(--backdrop-blur));
-        border-radius: 32px;
+        border-radius: 20px;
         box-shadow: var(--shadow-panel);
         overflow: hidden;
         border: 1px solid var(--border-primary);
         position: relative;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .process-panel::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent 0%, var(--border-glow) 30%, var(--border-glow) 70%, transparent 100%);
-      }
-
-      .process-panel:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-panel), var(--glow-primary);
+        transition: all 0.3s ease;
+        margin-bottom: 40px;
       }
 
       .panel-header {
         background: var(--bg-header);
-        backdrop-filter: blur(10px);
-        padding: 28px 40px;
+        backdrop-filter: blur(8px);
+        padding: 24px 32px;
         border-bottom: 1px solid var(--border-primary);
-        position: relative;
-      }
-
-      .panel-header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent 0%, var(--border-glow) 50%, transparent 100%);
       }
 
       .panel-title {
-        font-size: 28px;
+        font-size: 24px;
         font-weight: 600;
         color: var(--text-primary);
         letter-spacing: -0.02em;
-        background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
       }
 
       .panel-content {
-        padding: 48px 40px;
+        padding: 32px;
       }
 
       .upload-zone {
         width: 100%;
-        max-width: 720px;
-        height: 240px;
+        height: 180px;
         border: 2px dashed var(--border-primary);
-        border-radius: 20px;
+        border-radius: 16px;
         background: var(--bg-input);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(8px);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        margin: 0 auto 32px;
+        transition: all 0.3s ease;
+        margin-bottom: 24px;
         position: relative;
-        overflow: hidden;
-      }
-
-      .upload-zone::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(circle at center, var(--border-glow) 0%, transparent 70%);
-        opacity: 0;
-        transition: opacity 0.4s ease;
       }
 
       .upload-zone:hover,
       .upload-zone.drag-over {
         border-color: var(--border-glow);
         background: var(--bg-card);
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-card), var(--glow-primary);
-      }
-
-      .upload-zone:hover::before,
-      .upload-zone.drag-over::before {
-        opacity: 0.1;
-      }
-
-      .upload-zone:focus {
-        outline: 2px solid var(--border-glow);
-        outline-offset: 4px;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-card);
       }
 
       .upload-icon {
-        width: 64px;
-        height: 64px;
-        margin-bottom: 24px;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 16px;
         color: var(--text-secondary);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s ease;
       }
 
       .upload-zone:hover .upload-icon {
         color: var(--text-primary);
-        transform: translateY(-4px);
+        transform: translateY(-2px);
       }
 
       .upload-text {
-        font-size: 18px;
+        font-size: 16px;
         color: var(--text-secondary);
-        margin-bottom: 8px;
+        margin-bottom: 4px;
         font-weight: 500;
-        transition: color 0.3s ease;
+        transition: color 0.2s ease;
       }
 
       .upload-zone:hover .upload-text {
@@ -469,42 +259,36 @@
       }
 
       .prompt-section {
-        margin-bottom: 32px;
+        margin-bottom: 24px;
       }
 
       .prompt-label {
-        font-size: 16px;
+        font-size: 14px;
         color: var(--text-secondary);
-        margin-bottom: 12px;
+        margin-bottom: 8px;
         display: block;
         font-weight: 500;
-        letter-spacing: -0.01em;
       }
 
       .prompt-input {
         width: 100%;
-        max-width: 720px;
-        height: 56px;
+        height: 48px;
         background: var(--bg-input);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(8px);
         border: 1px solid var(--border-primary);
-        border-radius: 16px;
-        padding: 0 24px;
-        font-size: 16px;
+        border-radius: 12px;
+        padding: 0 16px;
+        font-size: 14px;
         color: var(--text-primary);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        margin: 0 auto;
-        display: block;
+        transition: all 0.2s ease;
         font-family: inherit;
-        position: relative;
       }
 
       .prompt-input:focus {
         outline: none;
         border-color: var(--border-glow);
         background: var(--bg-card);
-        box-shadow: var(--glow-primary);
-        transform: translateY(-2px);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
       }
 
       .prompt-input::placeholder {
@@ -514,42 +298,23 @@
 
       .process-button {
         width: 100%;
-        max-width: 720px;
-        height: 64px;
+        height: 48px;
         background: var(--accent-primary);
         border: none;
-        border-radius: 16px;
+        border-radius: 12px;
         color: white;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: var(--shadow-button), var(--shadow-inner);
-        margin: 0 auto;
-        display: block;
+        transition: all 0.2s ease;
+        box-shadow: var(--shadow-button);
         position: relative;
         overflow: hidden;
-        letter-spacing: -0.01em;
-      }
-
-      .process-button::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.6s ease;
       }
 
       .process-button:hover:not(:disabled) {
-        transform: translateY(-3px);
-        box-shadow: var(--glow-primary), var(--shadow-button), var(--shadow-inner);
-      }
-
-      .process-button:hover:not(:disabled)::before {
-        left: 100%;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
       }
 
       .process-button:disabled {
@@ -558,95 +323,123 @@
         transform: none;
       }
 
-      .process-button:focus {
-        outline: 2px solid var(--border-glow);
-        outline-offset: 4px;
-      }
-
       .result-card {
-        margin-top: 40px;
-        padding: 32px;
+        margin-top: 32px;
+        padding: 24px;
         background: var(--bg-card);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(8px);
         border: 1px solid var(--border-primary);
-        border-radius: 20px;
+        border-radius: 16px;
         display: none;
         box-shadow: var(--shadow-card);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s ease;
       }
 
       .result-card.show {
         display: block;
-        animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: slideInUp 0.4s ease;
       }
 
       @keyframes slideInUp {
         from { 
           opacity: 0; 
-          transform: translateY(30px) scale(0.95); 
+          transform: translateY(20px); 
         }
         to { 
           opacity: 1; 
-          transform: translateY(0) scale(1); 
+          transform: translateY(0); 
         }
       }
 
       .result-header {
         display: flex;
         align-items: center;
-        gap: 20px;
-        margin-bottom: 24px;
+        gap: 16px;
+        margin-bottom: 20px;
       }
 
       .result-thumbnail {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         background: var(--bg-input);
-        border-radius: 16px;
+        border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: var(--text-secondary);
         border: 1px solid var(--border-primary);
-        transition: all 0.3s ease;
       }
 
-      .result-thumbnail:hover {
-        transform: scale(1.05);
-        border-color: var(--border-glow);
+      .result-meta {
+        flex: 1;
       }
 
-      .result-meta h3 {
-        font-size: 20px;
+      .result-meta-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+
+      .result-filename {
+        font-size: 16px;
         font-weight: 600;
         color: var(--text-primary);
-        margin-bottom: 8px;
-        letter-spacing: -0.01em;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-family: inherit;
+        min-width: 150px;
+      }
+
+      .result-filename:focus {
+        background: var(--bg-input);
+        padding: 4px 8px;
+        border-radius: 6px;
+        border: 1px solid var(--border-glow);
+      }
+
+      .edit-filename-btn {
+        background: transparent;
+        border: none;
+        color: var(--text-tertiary);
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .edit-filename-btn:hover {
+        color: var(--text-primary);
+        background: var(--bg-input);
       }
 
       .result-meta p {
-        font-size: 16px;
+        font-size: 14px;
         color: var(--text-secondary);
         font-weight: 400;
       }
 
       .result-actions {
         display: flex;
-        gap: 16px;
+        gap: 12px;
         align-items: center;
       }
 
       .format-select {
-        padding: 12px 16px;
+        padding: 8px 12px;
         background: var(--bg-input);
         border: 1px solid var(--border-primary);
-        border-radius: 12px;
+        border-radius: 8px;
         color: var(--text-primary);
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
         cursor: pointer;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
+        transition: all 0.2s ease;
+        backdrop-filter: blur(8px);
       }
 
       .format-select:hover {
@@ -655,50 +448,33 @@
       }
 
       .download-button {
-        padding: 12px 24px;
+        padding: 8px 16px;
         background: var(--accent-primary);
         border: none;
-        border-radius: 12px;
+        border-radius: 8px;
         color: white;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s ease;
         box-shadow: var(--shadow-button);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .download-button::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.6s ease;
       }
 
       .download-button:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--glow-primary), var(--shadow-button);
-      }
-
-      .download-button:hover::before {
-        left: 100%;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
       }
 
       .loading {
         display: none;
         text-align: center;
-        padding: 40px;
+        padding: 32px;
         color: var(--text-secondary);
       }
 
       .loading.show {
         display: block;
-        animation: fadeIn 0.4s ease;
+        animation: fadeIn 0.3s ease;
       }
 
       @keyframes fadeIn {
@@ -707,13 +483,13 @@
       }
 
       .spinner {
-        width: 32px;
-        height: 32px;
-        border: 3px solid var(--border-primary);
-        border-top: 3px solid var(--border-glow);
+        width: 24px;
+        height: 24px;
+        border: 2px solid var(--border-primary);
+        border-top: 2px solid var(--border-glow);
         border-radius: 50%;
         animation: spin 1s linear infinite;
-        margin: 0 auto 16px;
+        margin: 0 auto 12px;
       }
 
       @keyframes spin {
@@ -722,15 +498,30 @@
       }
 
       .loading-text {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
         color: var(--text-secondary);
+      }
+
+      .footer {
+        background: var(--bg-footer);
+        backdrop-filter: blur(8px);
+        border-top: 1px solid var(--border-primary);
+        padding: 16px 32px;
+        text-align: center;
+        margin-top: 60px;
+      }
+
+      .footer-text {
+        font-size: 12px;
+        color: var(--text-tertiary);
+        font-weight: 400;
       }
 
       /* Mobile Optimizations */
       @media (max-width: 768px) {
         .nav {
-          padding: 16px 20px;
+          padding: 12px 16px;
         }
 
         .logo-text {
@@ -738,43 +529,37 @@
         }
 
         .main {
-          padding-top: 100px;
+          padding-top: 80px;
           padding-left: 16px;
           padding-right: 16px;
         }
 
         .process-panel {
           max-width: 100%;
-          border-radius: 24px;
-        }
-
-        .panel-content {
-          padding: 32px 24px;
-        }
-
-        .panel-title {
-          font-size: 24px;
-        }
-
-        .upload-zone {
-          height: 200px;
-          max-width: 100%;
           border-radius: 16px;
         }
 
+        .panel-content {
+          padding: 24px 20px;
+        }
+
+        .panel-title {
+          font-size: 20px;
+        }
+
+        .upload-zone {
+          height: 160px;
+          border-radius: 12px;
+        }
+
         .upload-icon {
-          width: 48px;
-          height: 48px;
-          margin-bottom: 16px;
+          width: 40px;
+          height: 40px;
+          margin-bottom: 12px;
         }
 
         .upload-text {
-          font-size: 16px;
-        }
-
-        .prompt-input,
-        .process-button {
-          max-width: 100%;
+          font-size: 14px;
         }
 
         .result-actions {
@@ -789,59 +574,44 @@
         }
 
         .cta-button {
-          padding: 10px 16px;
-          font-size: 14px;
+          padding: 8px 14px;
+          font-size: 13px;
         }
 
-        .floating-circle {
-          display: none;
+        .footer {
+          padding: 12px 16px;
         }
-      }
-
-      /* Ultra-smooth transitions */
-      * {
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       /* Custom scrollbar */
       ::-webkit-scrollbar {
-        width: 8px;
+        width: 6px;
       }
 
       ::-webkit-scrollbar-track {
         background: var(--bg-input);
-        border-radius: 10px;
+        border-radius: 8px;
       }
 
       ::-webkit-scrollbar-thumb {
         background: var(--border-primary);
-        border-radius: 10px;
-        transition: background 0.3s ease;
+        border-radius: 8px;
+        transition: background 0.2s ease;
       }
 
       ::-webkit-scrollbar-thumb:hover {
         background: var(--border-glow);
       }
-
-      /* Focus styles for accessibility */
-      *:focus-visible {
-        outline: 2px solid var(--border-glow);
-        outline-offset: 2px;
-        border-radius: 8px;
-      }
     </style>
   </head>
   <body>
-    <div class="noise-overlay"></div>
-    
     <nav class="nav">
       <div class="logo">
-        <div class="logo-icon">T</div>
-        <span class="logo-text">TOOLCHAT</span>
+        <span class="logo-text">TOOLChat</span>
       </div>
       <div class="nav-right">
         <button class="theme-toggle" aria-label="Toggle theme" role="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
@@ -850,12 +620,6 @@
     </nav>
 
     <main class="main">
-      <div class="floating-elements">
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
-      </div>
-
       <div class="process-panel">
         <div class="panel-header">
           <h1 class="panel-title">Process your files</h1>
@@ -893,14 +657,22 @@
           <div class="result-card">
             <div class="result-header">
               <div class="result-thumbnail">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
                   <circle cx="8.5" cy="8.5" r="1.5"/>
                   <polyline points="21,15 16,10 5,21"/>
                 </svg>
               </div>
               <div class="result-meta">
-                <h3>processed_image.jpg</h3>
+                <div class="result-meta-header">
+                  <input type="text" class="result-filename" value="processed_image.jpg" readonly>
+                  <button class="edit-filename-btn" aria-label="Edit filename">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                      <path d="m18.5 2.5 a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4Z"/>
+                    </svg>
+                  </button>
+                </div>
                 <p>1920×1080 • 2.4 MB</p>
               </div>
             </div>
@@ -917,6 +689,10 @@
       </div>
     </main>
 
+    <footer class="footer">
+      <p class="footer-text">© 2024 TOOLChat. Professional file processing made simple.</p>
+    </footer>
+
     <script>
       const uploadZone = document.querySelector('.upload-zone');
       const fileInput = document.querySelector('.file-input');
@@ -925,10 +701,12 @@
       const loading = document.querySelector('.loading');
       const resultCard = document.querySelector('.result-card');
       const themeToggle = document.querySelector('.theme-toggle');
+      const filenameInput = document.querySelector('.result-filename');
+      const editFilenameBtn = document.querySelector('.edit-filename-btn');
       
       let selectedFile = null;
 
-      // Enhanced file upload handling with smooth animations
+      // File upload handling
       uploadZone.addEventListener('click', () => fileInput.click());
       
       uploadZone.addEventListener('dragover', (e) => {
@@ -960,12 +738,6 @@
         selectedFile = file;
         updateUploadZone(file.name);
         updateProcessButton();
-        
-        // Add subtle success animation
-        uploadZone.style.transform = 'scale(1.02)';
-        setTimeout(() => {
-          uploadZone.style.transform = '';
-        }, 200);
       }
       
       function updateUploadZone(fileName) {
@@ -986,7 +758,6 @@
         
         if (shouldEnable) {
           processButton.style.opacity = '1';
-          processButton.style.transform = 'translateY(0)';
         } else {
           processButton.style.opacity = '0.6';
         }
@@ -994,45 +765,50 @@
       
       promptInput.addEventListener('input', updateProcessButton);
       
-      // Enhanced process handling with smooth transitions
+      // Process handling
       processButton.addEventListener('click', async () => {
         if (!selectedFile || !promptInput.value.trim()) return;
         
-        // Smooth transition to loading state
-        processButton.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-          processButton.style.transform = '';
-          loading.classList.add('show');
-          resultCard.classList.remove('show');
-        }, 100);
+        loading.classList.add('show');
+        resultCard.classList.remove('show');
         
-        // Simulate processing with realistic delay
-        await new Promise(resolve => setTimeout(resolve, 1200));
+        // Simulate processing
+        await new Promise(resolve => setTimeout(resolve, 1000));
         
         loading.classList.remove('show');
         
-        // Delay for smooth transition
         setTimeout(() => {
           resultCard.classList.add('show');
-        }, 200);
+        }, 150);
       });
       
-      // Enhanced theme toggle with smooth transitions
+      // Theme toggle
       themeToggle.addEventListener('click', () => {
         const html = document.documentElement;
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
-        // Add rotation animation to theme button
-        themeToggle.style.transform = 'rotate(360deg)';
-        setTimeout(() => {
-          themeToggle.style.transform = '';
-        }, 300);
-        
         html.setAttribute('data-theme', newTheme);
       });
       
-      // Enhanced keyboard shortcuts
+      // Filename editing
+      editFilenameBtn.addEventListener('click', () => {
+        filenameInput.readOnly = false;
+        filenameInput.focus();
+        filenameInput.select();
+      });
+      
+      filenameInput.addEventListener('blur', () => {
+        filenameInput.readOnly = true;
+      });
+      
+      filenameInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          filenameInput.blur();
+        }
+      });
+      
+      // Keyboard shortcuts
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           resetForm();
@@ -1058,52 +834,12 @@
         loading.classList.remove('show');
       }
       
-      // Enhanced keyboard support for upload zone
+      // Keyboard support for upload zone
       uploadZone.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           fileInput.click();
         }
-      });
-
-      // Add parallax effect to floating elements
-      document.addEventListener('mousemove', (e) => {
-        const circles = document.querySelectorAll('.floating-circle');
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
-        
-        circles.forEach((circle, index) => {
-          const speed = (index + 1) * 0.5;
-          const x = (mouseX - 0.5) * speed * 20;
-          const y = (mouseY - 0.5) * speed * 20;
-          circle.style.transform = `translate(${x}px, ${y}px)`;
-        });
-      });
-
-      // Add smooth scroll behavior
-      document.documentElement.style.scrollBehavior = 'smooth';
-
-      // Intersection Observer for animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, observerOptions);
-
-      // Observe elements for scroll animations
-      document.querySelectorAll('.process-panel').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        observer.observe(el);
       });
     </script>
   </body>
